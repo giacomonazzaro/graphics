@@ -199,7 +199,7 @@ struct Commands {
   void operator+=(std::function<void()>&& f) { buffer.push_back(f); }
 };
 
-void consume(Commands& commands) {
+inline void consume(Commands& commands) {
   for (auto& f : commands.buffer) f();
   commands.buffer.clear();
 }
